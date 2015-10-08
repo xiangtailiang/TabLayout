@@ -1,2 +1,6 @@
 # TabLayout
-TabLayout extract from Android Design Library for witch one who do not want to import Android Design Library .
+TabLayout extract from Android Design Library for who do not want to import Android Design Library.
+
+
+#Sample
+You can find a sample APK : [Link](https://github.com/xiangtailiang/TabLayout/blob/master/release/tablayout.apk)
