@@ -7,10 +7,9 @@ Sample
 ----------
 You can find a sample APK : [Link](https://github.com/xiangtailiang/TabLayout/releases)
 
-Import dependency using Gradle:
-
 How to use
 ----------
+Import dependency using Gradle:
 ```
 compile 'com.github.xiangtailiang.tablayout:library:1.0.0'
 ```
