@@ -6,8 +6,6 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewCompat;
@@ -31,8 +29,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -42,7 +38,7 @@ import java.util.Iterator;
  * 使用方法很简单：
  * <pre>
  * 1、创建PagerAdapter并覆盖getPageTitle方法，为每个tab提供名称
- * 2、调用setupWithViewPager(@NonNull ViewPager viewPager)方法，就OK。
+ * 2、调用setupWithViewPager(ViewPager viewPager)方法，就OK。
  * </pre>
  *
  * @see <a href="http://www.google.com/design/spec/components/tabs.html">Tabs</a>
@@ -82,14 +78,6 @@ public class TabLayout extends HorizontalScrollView {
     public static final int MODE_FIXED = 1;
 
     /**
-     * @hide
-     */
-    @IntDef(value = {MODE_SCROLLABLE, MODE_FIXED})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface Mode {
-    }
-
-    /**
      * Gravity used to fill the {@link TabLayout} as much as possible. This option only takes effect
      * when used with {@link #MODE_FIXED}.
      *
@@ -107,14 +95,6 @@ public class TabLayout extends HorizontalScrollView {
      * @see #getTabGravity()
      */
     public static final int GRAVITY_CENTER = 1;
-
-    /**
-     * @hide
-     */
-    @IntDef(flag = true, value = {GRAVITY_FILL, GRAVITY_CENTER})
-    @Retention(RetentionPolicy.SOURCE)
-    public @interface TabGravity {
-    }
 
     /**
      * Callback interface invoked when a tab's selection state changes.
@@ -264,7 +244,7 @@ public class TabLayout extends HorizontalScrollView {
         }
     }
 
-    public void setupWithViewPager(@NonNull ViewPager viewPager) {
+    public void setupWithViewPager(ViewPager viewPager) {
         PagerAdapter adapter = viewPager.getAdapter();
         if (adapter == null) {
             throw new IllegalArgumentException("ViewPager does not have a PagerAdapter set");
@@ -511,7 +491,7 @@ public class TabLayout extends HorizontalScrollView {
      *
      * @param mode one of {@link #MODE_FIXED} or {@link #MODE_SCROLLABLE}.
      */
-    public void setTabMode(@Mode int mode) {
+    public void setTabMode(int mode) {
         if (mode != mMode) {
             mMode = mode;
             applyModeAndGravity();
@@ -523,7 +503,6 @@ public class TabLayout extends HorizontalScrollView {
      *
      * @see #setTabMode(int)
      */
-    @Mode
     public int getTabMode() {
         return mMode;
     }
@@ -533,7 +512,7 @@ public class TabLayout extends HorizontalScrollView {
      *
      * @param gravity one of {@link #GRAVITY_CENTER} or {@link #GRAVITY_FILL}.
      */
-    public void setTabGravity(@TabGravity int gravity) {
+    public void setTabGravity(int gravity) {
         if (mTabGravity != gravity) {
             mTabGravity = gravity;
             applyModeAndGravity();
@@ -545,7 +524,6 @@ public class TabLayout extends HorizontalScrollView {
      *
      * @return one of {@link #GRAVITY_CENTER} or {@link #GRAVITY_FILL}.
      */
-    @TabGravity
     public int getTabGravity() {
         return mTabGravity;
     }
